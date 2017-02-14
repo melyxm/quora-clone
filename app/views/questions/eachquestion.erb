@@ -1,0 +1,17 @@
+<h1> Your question </h1>
+<h3><%= @question.content%></h3>
+
+
+
+
+<form action='/question/<%= @question.id %>/answers' method = "post">
+
+<input type=text placeholder="Please type your answer" name="answer">
+
+<input type="submit" value="Answer">
+
+</form>
+
+<% @question.answers.each do |answer| %>
+  <p><%= answer.content %></p>
+<% end %>

@@ -1,0 +1,21 @@
+
+<h3>Welcome <a href="users/<%= "#{current_user.id}" %>"><%=current_user.full_name%></a></h3>
+<form action='/logout' method = 'post'>
+<input type="submit" value="Log Out">
+</form>
+
+<h1>Welcome to Question-Land</h1>
+
+<p>Post your intelligent questions below</p>
+
+<form action='/questions' method = "post">
+
+  <input type=text placeholder="Ask your question" name="question">
+
+  <input type="submit" value="Ask">
+
+</form>
+
+<% @questions.each do |question| %>
+<a href=<%= question_url(question)%>><%= question.content%><br></a>
+<%end%>

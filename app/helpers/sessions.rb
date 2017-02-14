@@ -8,4 +8,8 @@ helpers do
     !current_user.nil?
   end
 
+	def question_url(question)
+		"/question/#{question.id}"
+	end
+
 end
