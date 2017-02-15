@@ -34,8 +34,3 @@ post '/logout' do
   session[:id] = nil
   redirect '/'
 end
-
-get '/users/:id' do
-  @user = User.find(params[:id])
-  erb :"static/profile"
-end
