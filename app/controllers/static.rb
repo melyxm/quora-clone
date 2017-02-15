@@ -1,4 +1,3 @@
-
 get '/' do
   erb :"static/index"
 end
@@ -19,10 +18,10 @@ get '/login' do
 end
 
 post '/login' do
-user = User.find_by(id: session[:id])
-  if user && user.authenticate()
+  user = User.find_by(email: params[:email])
+  if user && user.authenticate(params[:password])
     session[:id] = user.id
-    redirect 'static/welcome'
+    redirect '/questions'
   else
     @error = "Invalid email/password combination"
     erb :"static/index"
@@ -34,9 +33,4 @@ post '/logout' do
   # redirect to the appropriate page
   session[:id] = nil
   redirect '/'
-end
-
-get '/users/:id' do
-  @user = User.find(params[:id])
-  erb :"static/profile"
 end

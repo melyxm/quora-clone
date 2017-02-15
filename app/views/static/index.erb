@@ -5,13 +5,16 @@
   <input type="submit" value="Log Out">
   <form>
 <% else %>
+
+<div class="center">
   <h2>Sign up for an account!</h2>
   <!-- <%= @error %> -->
   <form method="post" action="/signup">
       <input type=text placeholder="Full Name" name="full_name"><br>
       <input type=text placeholder="Email" name="user_email"><br>
       <input type=password placeholder="Password" name="password"></br>
-      <input type=submit value="Sign up">
+      <input class="btn btn-warning btn-mel" type=submit value="Sign up">
   </form>
   <a href="/login">Login</a>
 <% end %>
+</div>

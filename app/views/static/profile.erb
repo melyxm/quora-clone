@@ -1,6 +1,26 @@
 <h2>
-  Name: <%=current_user.full_name%>
+  Name: <%= @user.full_name%>
   <br>
-Email: <%=current_user.email%>
+Email: <%= @user.email%>
 <br>
 </h2>
+<h3>
+  <a href="/myquestions/users/<%= @user.id %>">My Questions</a>
+</h3>
+  <br>
+  <p>
+  <% @user.questions.each do |question| %>
+  <%= question.content %>
+  <% end %>
+</p>
+  <br>
+  <h3>
+  <a href="/myanswers/users/<%= @user.id %>">My Answers</a>
+</h3>
+  <br>
+  <p>
+  <% @user.answers.each do |answer| %>
+  <%= answer.content %>
+  <% end %>
+  <br>
+</p>

@@ -1,9 +1,9 @@
-class CreateAnswer < ActiveRecord::Migration
-def change
-  create_table :answers do |t|
-    t.string :content
-    t.integer :user_id
-    t.string :question_id
+class CreateAnswers < ActiveRecord::Migration
+  def change
+    create_table :answers do |t|
+      t.string :content
+      t.integer :user_id
+      t.integer :question_id #t.reference :questions
+    end
   end
-end
 end
